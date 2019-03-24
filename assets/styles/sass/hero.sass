@@ -1,0 +1,58 @@
+// n is number of stars required
+@function multiple-box-shadow ($n)
+  $value: '#{random(2000)}px #{random(2000)}px #a4add5'
+  @for $i from 2 through $n
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #a4add5'
+
+  @return unquote($value)
+
+$shadows-small:  multiple-box-shadow(1000)
+$shadows-medium: multiple-box-shadow(300)
+$shadows-big:    multiple-box-shadow(200)
+
+.hero-main
+    @extend .hero
+    background-color: hsl(204, 99%, 34%)
+    background-image: linear-gradient( hsla(204, 99%, 34%, 0.6), hsla(24, 100%, 50%, 0.4)),linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("/assets/img/cropped-hero.jpg")
+    background-repeat: no-repeat
+    background-attachment: fixed
+    background-position: 50% 50%
+    background-size: cover
+    overflow: hidden
+
+    #stars
+        width: 1px
+        height: 1px
+        border-radius: 50%
+        background: transparent
+        box-shadow: $shadows-small
+        animation: animStar 50s linear infinite
+
+    #stars2
+        width: 2px
+        height: 2px
+        border-radius: 50%
+        background: transparent
+        box-shadow: $shadows-medium
+        animation: animStar 100s linear infinite
+
+    #stars3
+        width: 3px
+        height: 3px
+        border-radius: 50%
+        background: transparent
+        box-shadow: $shadows-big
+        animation: animStar 150s linear infinite
+
+    .title, .subtitle
+      color: $beige-lighter
+      text-align: center
+      font-weight: 300
+      font-size: 50px
+      letter-spacing: 10px
+      background: linear-gradient($yellow, $orange)
+      -webkit-background-clip: text
+      -webkit-text-fill-color: transparent
+
+      @media screen and (max-width: 681px)
+        font-size: 40px

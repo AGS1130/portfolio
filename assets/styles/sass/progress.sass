@@ -1,0 +1,90 @@
+$spacing: 1rem;
+$themeColor: $oceanBlue;
+$backColor: #ddd;
+$textShadow: rgba(black, 0.35) 1px 1px 1px;
+
+.columns
+    .column:nth-child(1)
+        i
+            color: $yellow;
+    .column:nth-child(2)
+        i
+            color: $oceanBlue;
+    .column:nth-child(3)
+        i
+            color: $orange;
+    .column:nth-child(4)
+        i
+            color: $navyBlue;
+
+    .progress--circle
+        position: relative;
+        display: inline-block;
+        margin: $spacing;
+        width: 180px;
+        height: 180px;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+        transition: transform 1s;
+        border-radius: 50%;
+        background-color: $backColor;
+
+        i
+            font-size: 60px;
+
+        &:before
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: white;
+
+        &:after
+            content: '';
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: $themeColor;
+
+        &:hover
+            transform: rotateY(180deg);
+
+
+
+    .progress__number
+        position: absolute;
+        top: 44%;
+        width: 100%;
+        line-height: 1;
+        margin-top: -0.75rem;
+        text-align: center;
+        font-size: 1.5rem;
+        color: #777;
+        backface-visibility: hidden;
+
+        &.back
+                transform: rotateY(180deg);
+                top: 50%;
+
+$step: 5;
+$loops: round(100 / $step);
+$increment: 360 / $loops;
+$half: round($loops / 2);
+@for $i from 0 through $loops
+  .progress--bar.progress--#{$i * $step}:after
+    width: $i * $step * 1%;
+
+  .progress--circle.progress--#{$i * $step}:after
+    @if $i < $half
+      $nextDeg: 90deg + ($increment * $i);
+      background-image: linear-gradient(90deg, $backColor 50%, transparent 50%, transparent), linear-gradient($nextDeg, $themeColor 50%, $backColor 50%, $backColor);
+
+    @else
+      $nextDeg: -90deg + ($increment * ($i - $half));
+      background-image: linear-gradient($nextDeg, $themeColor 50%, transparent 50%, transparent), linear-gradient(270deg, $themeColor 50%, $backColor 50%, $backColor);
+

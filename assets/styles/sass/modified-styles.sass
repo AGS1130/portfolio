@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+// Import a Google Font
+@import url("https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei");
+
+// Set your brand colors
+$navyBlue: hsl(216, 100%, 26%);
+$oceanBlue: hsl(204, 99%, 34%);
+$yellow: hsl(48, 100%, 50%);
+$orange: hsl(24, 100%, 50%);
+$red: hsl(0, 100%, 40%);
+$brown: hsl(27, 61%, 58%);
+$beige-light: hsl(210, 4%, 89%);
+$beige-lighter: hsl(0, 0%, 94%);
+
+// Update Bulma's global variables
+$family-sans-serif: "ZCOOL XiaoWei", sans-serif;
+$grey-dark: $brown;
+$grey-light: $beige-light;
+$primary: $navyBlue;
+$link: $orange;
+$link-hover: $yellow;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// Update some of Bulma's component variables
+$body-background-color: $beige-lighter;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+// Import Bulma
+@import "../vendors/bulma/bulma.sass";
