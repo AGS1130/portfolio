@@ -76,29 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // TweenMax TimelineMax
-    // var timeLine = new TimelineMax({
-    //     onUpdate: updatePercentage,
-    //     onComplete: killInlineStyle
-    // });
-
-    // timeLine.from('#skills .column:nth-child(1)', 1, {
-    //     x: 300,
-    //     opacity: 0
-    // });
-    // timeLine.from('#skills .column:nth-child(2)', 1, {
-    //     x: 300,
-    //     opacity: 0
-    // });
-    // timeLine.from('#skills .column:nth-child(3)', 1, {
-    //     x: 300,
-    //     opacity: 0
-    // });
-    // timeLine.from('#skills .column:nth-child(4)', 1, {
-    //     x: 300,
-    //     opacity: 0
-    // });
-
     // init ScrollMagic
     var controller = new ScrollMagic.Controller();
 
@@ -107,46 +84,4 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .setClassToggle('#projects .card.is-shady', 'flip-in')
         .addTo(controller);
-
-    // var $scrollMagicSkills = new ScrollMagic.Scene({var $scrollMagicSkills = new ScrollMagic.Scene({
-    //     triggerElement: '#skills',
-    //     triggerHook: 'onCenter',
-    //     duration: '100%'
-    // })
-
-    // window.addEventListener('resize', function () {
-    //     if (window.innerWidth >= 720) {
-    //         $scrollMagicSkills
-    //             .setPin('#skills')
-    //             .setTween(timeLine)
-    //             .addTo(controller);
-    //     } else {
-    //         killInlineStyle(true);
-    //         $scrollMagicSkills.destroy();
-    //     }
-    // })
-
-    function updatePercentage() {
-        timeLine.progress();
-    }
-
-    function killInlineStyle(mobile = false) {
-        $skillsProgress = document.querySelectorAll('.progress--circle');
-        $magicScrollPin = document.querySelectorAll('.scrollmagic-pin-spacer');
-        $scrollPinColumns = document.querySelectorAll('.scrollmagic-pin-spacer .columns');
-
-        $skillsProgress.forEach(function (el) {
-            el.removeAttribute('style');
-        })
-
-        if (mobile) {
-            $magicScrollPin.forEach(function (el) {
-                el.removeAttribute('style');
-            })
-
-            $scrollPinColumns.forEach(function (el) {
-                el.removeAttribute('style');
-            })
-        }
-    }
 });
